@@ -73,6 +73,7 @@ function love.keypressed(key, scancode)
             keyStringInput = tostring(keyStringInput)
         elseif keyResultType == "table" then
             keyStringInput = type(keyStringInput) == "table" and keyStringInput or {}
+            dropdowns[keyStringInput] = {["__open__"] = false}
         end
         if keyStringInput ~= nil then
             if valueResultType == "boolean" then
@@ -87,6 +88,7 @@ function love.keypressed(key, scancode)
                 tableEditRef[keyStringInput] = tostring(valueStringInput)
             elseif valueResultType == "table" then
                 tableEditRef[keyStringInput] = type(tableEditRef[keyStringInput]) == "table" and tableEditRef[keyStringInput] or {}
+                dropdowns[tableEditRef[keyStringInput]] = {["__open__"] = false}
             end
         end
     end
