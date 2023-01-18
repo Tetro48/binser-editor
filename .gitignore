@@ -1,0 +1,7 @@
+*.sav
+*.love
+*.zip
+dist/*.zip
+dist/**/binsereditor.exe
+dist/**/libs
+dist/**/*.md
