@@ -202,6 +202,18 @@ local function recursivelyInteractWithTable(table, dropdown, button, recursion_l
             interactX = interactX + 20
         end
     end
+    interactY = interactY - 20
+    if interactX > 20 and interactY > 0 and interactY < 20 and interactX < 340 and button == 1 then
+        isEditing = true
+        -- contextMenuEnabled = true
+        -- contextMenuX, contextMenuY = love.mouse.getPosition()
+        tableEditRef = table
+        keyEditRef = nil
+        keyResultType = "string"
+        valueResultType = "string"
+        keyStringInput = ""
+        valueStringInput = ""
+    end
 end
 
 local typeSelectorInteractionTable = {
@@ -338,6 +350,12 @@ local function recursivelyDrawTable(table, dropdown, name)
             love.graphics.printf(stringTypeQuote(key).." : "..stringTypeQuote(value), 5 + renderXOffset + 20, renderYOffset, width)
         end
     end
+    renderYOffset = renderYOffset + 20
+    local gray = 0.5 / (CursorHighlight(renderXOffset, renderYOffset, 320, 20) + 1)
+    love.graphics.setColor(gray, gray, gray, 1)
+    love.graphics.rectangle("fill", renderXOffset, renderYOffset, 320, 20)
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.printf({ {0, 1, 0, 1}, "+", {1, 1, 1, 1}, " Add key value pair"}, 10 + renderXOffset, renderYOffset, 300, "center")
 end
 function love.wheelmoved(x, y)
     screenXOffset = screenXOffset - x * 100
