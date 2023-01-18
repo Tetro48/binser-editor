@@ -353,9 +353,9 @@ local function recursivelyDrawTable(table, dropdown, name)
     renderYOffset = renderYOffset + 20
     local gray = 0.5 / (CursorHighlight(renderXOffset, renderYOffset, 320, 20) + 1)
     love.graphics.setColor(gray, gray, gray, 1)
-    love.graphics.rectangle("fill", renderXOffset, renderYOffset, 320, 20)
+    love.graphics.rectangle("fill", renderXOffset + 20, renderYOffset, 320, 20)
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.printf({ {0, 1, 0, 1}, "+", {1, 1, 1, 1}, " Add key value pair"}, 10 + renderXOffset, renderYOffset, 300, "center")
+    love.graphics.printf({ {0, 1, 0, 1}, "+", {1, 1, 1, 1}, " Add key value pair"}, 30 + renderXOffset, renderYOffset, 300, "center")
 end
 function love.wheelmoved(x, y)
     screenXOffset = screenXOffset - x * 100
